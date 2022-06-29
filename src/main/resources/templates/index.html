@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+ <html xmlns:th="http://www.thymeleaf.org"
+            xmlns:sec="http://www.thymeleaf.org/extras/spring-security">>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<h1>Welcome Home</h1>
+<ul>
+    <li sec:authorize="isAnonymous()"><a class="nav-link" href="/login">Login</a></li>
+    <li sec:authorize="isAuthenticated()"><a class="nav-link" href="/logout">Logout</a></li>
+    <li sec:authorize="isAuthenticated()">Wellcome, <span sec:authentication="name"></span></li>
+    <li sec:authorize="isAuthenticated()"> <span th:text="${#authentication.getPrincipal().authorities}"></span></li>
+
+</ul>
+
+
+</body>
+</html>

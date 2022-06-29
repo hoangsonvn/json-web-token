@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<p><span th:text="${error}"></span>.</p>
+
+<div class="page-title">Login (For Employee, Manager)</div>
+
+<div class="login-container">
+    <h3>Enter username and password</h3>
+    <br>
+    <!-- /login?error=true -->
+
+
+    <form method="POST"
+          th:action="@{/j_spring_security_check}">
+        <table>
+            <tr>
+                <td>User Name *</td>
+                <td><input name="username"/></td>
+            </tr>
+            <tr>
+                <td>Password *</td>
+                <td><input type="password" name="password"/></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Login"/>
+                    <input type="reset" value="Reset"/>
+                </td>
+            </tr>
+            tr>
+            <td>Remember Me:</td>
+            <td><input type="checkbox" name="remember-me"/></td>
+            </tr>
+            <tr>
+        </table>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+</div>
+
+<div style="text-align:left">
+    <h3>User/Password:</h3>
+    <ul>
+        <li>employee1/123</li>
+        <li>manager1/123</li>
+    </ul>
+</div>
+
+
+</body>
+</html>
